@@ -26,8 +26,7 @@ public class TokenUpdater {
         if (Token.isEmpty()) {
             Log.e("Token Updater", "Token is Empty");
         }
-        webservice = WebServiceFactory.getWebServiceInstanceWithCustomInterceptor(context,
-                WebServiceConstants.Local_SERVICE_URL);
+        webservice = WebServiceFactory.getWebServiceInstanceWithCustomInterceptor(WebServiceConstants.Local_SERVICE_URL);
 
        /* Call<ResponseWrapper> call = webservice.updateToken(userid,Token, DeviceType );
         call.enqueue(new Callback<ResponseWrapper>() {

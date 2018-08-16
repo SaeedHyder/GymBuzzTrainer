@@ -18,6 +18,7 @@ import com.andreabaccega.formedittextvalidator.Validator;
 import com.app.gymbuzz.R;
 import com.app.gymbuzz.activities.DockActivity;
 import com.app.gymbuzz.activities.MainActivity;
+import com.app.gymbuzz.global.WebServiceConstants;
 import com.app.gymbuzz.helpers.BasePreferenceHelper;
 import com.app.gymbuzz.helpers.GPSTracker;
 import com.app.gymbuzz.helpers.ServiceHelper;
@@ -25,6 +26,7 @@ import com.app.gymbuzz.helpers.UIHelper;
 import com.app.gymbuzz.interfaces.LoadingListener;
 import com.app.gymbuzz.interfaces.webServiceResponseLisener;
 import com.app.gymbuzz.retrofit.WebService;
+import com.app.gymbuzz.retrofit.WebServiceFactory;
 import com.app.gymbuzz.ui.views.AnyEditTextView;
 import com.app.gymbuzz.ui.views.TitleBar;
 
@@ -55,7 +57,7 @@ public abstract class BaseFragment extends Fragment implements webServiceRespons
 		mGpsTracker = new GPSTracker(getDockActivity());
 
 		if (webService == null) {
-			//webService = WebServiceFactory.getWebServiceInstanceWithCustomInterceptor(getDockActivity(),"End Point");
+			webService = WebServiceFactory.getWebServiceInstanceWithCustomInterceptor(WebServiceConstants.SERVICE_URL);
 		}
 		if (serviceHelper == null){
 			serviceHelper = new ServiceHelper(this,getDockActivity(),webService);

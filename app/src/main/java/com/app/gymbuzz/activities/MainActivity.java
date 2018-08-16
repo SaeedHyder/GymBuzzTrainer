@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.app.gymbuzz.R;
 import com.app.gymbuzz.fragments.HomeFragment;
+import com.app.gymbuzz.fragments.HomeMenuFragment;
 import com.app.gymbuzz.fragments.LoginFragment;
 import com.app.gymbuzz.fragments.NotificationsFragment;
 import com.app.gymbuzz.fragments.SideMenuFragment;
@@ -200,7 +201,7 @@ public class MainActivity extends DockActivity implements OnClickListener, Image
     public void initFragment() {
         getSupportFragmentManager().addOnBackStackChangedListener(getListener());
         if (prefHelper.isLogin()) {
-            replaceDockableFragment(HomeFragment.newInstance(), "HomeFragment");
+            replaceDockableFragment(HomeMenuFragment.newInstance(), "HomeMenuFragment");
         } else {
             replaceDockableFragment(LoginFragment.newInstance(), "LoginFragment");
         }

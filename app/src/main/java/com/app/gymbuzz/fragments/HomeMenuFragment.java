@@ -107,6 +107,9 @@ public class HomeMenuFragment extends BaseFragment {
             case R.id.btnTraineeProfile:
                 getDockActivity().replaceDockableFragment(ViewProfileFragment.newInstance(), ViewProfileFragment.class.getSimpleName());
                 break;
+                case R.id.btnSettings:
+                getDockActivity().replaceDockableFragment(SettingFragment.newInstance(), SettingFragment.class.getSimpleName());
+                break;
         }
     }
 }

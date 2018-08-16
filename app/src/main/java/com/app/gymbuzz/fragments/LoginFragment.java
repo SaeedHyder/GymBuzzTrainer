@@ -105,7 +105,7 @@ public class LoginFragment extends BaseFragment {
                 if(isValidated()){
                     prefHelper.setLoginStatus(true);
                     getDockActivity().popBackStackTillEntry(0);
-                    getDockActivity().replaceDockableFragment(HomeFragment.newInstance(), HomeFragment.class.getSimpleName());
+                    getDockActivity().replaceDockableFragment(HomeMenuFragment.newInstance(), HomeMenuFragment.class.getSimpleName());
                 }
 
                 break;

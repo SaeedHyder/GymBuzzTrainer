@@ -5,25 +5,37 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.support.v4.app.NotificationCompat;
 
+import com.app.gymbuzz.BuildConfig;
+
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.logging.HttpLoggingInterceptor;
 
 public class OKHttpClientCreator {
 
     private static NotificationManager mNotifyManager;
     private static NotificationCompat.Builder mBuilder;
 
-    public static OkHttpClient createCustomInterceptorClient(Context context) {
-
-        OkHttpClient client = new OkHttpClient.Builder()
-                .addNetworkInterceptor(new CustomInterceptor(progressListener))
-                .build();
-
-
-        return client;
+    public static OkHttpClient createCustomInterceptorClient() {
+        OkHttpClient.Builder builder = new OkHttpClient().newBuilder();
+        builder.addInterceptor(chain -> {
+            Request request = chain.request().newBuilder().addHeader("Accept-Encoding", "identity").build();
+            return chain.proceed(request);
+        });
+        builder.readTimeout(60, TimeUnit.SECONDS);
+        builder.connectTimeout(60, TimeUnit.SECONDS);
+        builder.addNetworkInterceptor(new CustomInterceptor(progressListener));
+        if (BuildConfig.DEBUG) {
+            HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            builder.addInterceptor(interceptor);
+        }
+        return builder.build();
 
 
     }

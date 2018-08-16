@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/color_bg">
 
     <ImageView
@@ -22,12 +22,12 @@
         android:id="@+id/ivLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo"
         android:layout_marginTop="@dimen/x30"
-        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/glLogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/glLogo"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.constraint.Guideline
         android:id="@+id/glLogo"
@@ -42,67 +42,79 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.42" />
+        app:layout_constraintGuide_percent="0.5" />
 
 
     <com.app.gymbuzz.ui.views.AnyTextView
         android:id="@+id/btnFloorPlan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x30"
+        android:drawablePadding="@dimen/x5"
+        android:drawableTop="@drawable/floorplan"
         android:text="@string/floor_plan"
         android:textColor="@color/color_accent"
         android:textSize="@dimen/x12"
-        android:drawablePadding="@dimen/x5"
-        android:layout_marginTop="@dimen/x30"
-        android:drawableTop="@drawable/floorplan"
-        app:typeface="@string/font_normal"
         app:layout_constraintEnd_toStartOf="@id/btnSupportPlan"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/glskeletons"/>
+        app:layout_constraintTop_toBottomOf="@id/glskeletons"
+        app:typeface="@string/font_normal" />
 
     <com.app.gymbuzz.ui.views.AnyTextView
         android:id="@+id/btnSupportPlan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x30"
+        android:drawablePadding="@dimen/x5"
+        android:drawableTop="@drawable/supportplan"
         android:text="@string/support_plan"
         android:textColor="@color/color_accent"
         android:textSize="@dimen/x12"
-        android:drawablePadding="@dimen/x5"
-        android:layout_marginTop="@dimen/x30"
-        android:drawableTop="@drawable/supportplan"
-        app:typeface="@string/font_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btnFloorPlan"
-        app:layout_constraintTop_toBottomOf="@id/glskeletons"/>
+        app:layout_constraintTop_toBottomOf="@id/glskeletons"
+        app:typeface="@string/font_normal" />
 
     <View
         android:id="@+id/line"
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="@color/grey"
-        android:layout_marginTop="@dimen/x30"
         android:layout_marginLeft="@dimen/x30"
         android:layout_marginRight="@dimen/x30"
-        app:layout_constraintTop_toBottomOf="@id/btnFloorPlan"/>
+        android:layout_marginTop="@dimen/x30"
+        android:background="@color/grey"
+        app:layout_constraintTop_toBottomOf="@id/btnFloorPlan"
+        app:layout_constraintBottom_toTopOf="@+id/btnTraineeProfile"/>
 
     <com.app.gymbuzz.ui.views.AnyTextView
         android:id="@+id/btnTraineeProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="@dimen/x45"
+        android:layout_marginTop="@dimen/x30"
         android:drawablePadding="@dimen/x5"
         android:drawableTop="@drawable/gymprofile"
         android:text="@string/trainee_profile"
         android:textColor="@color/color_accent"
         android:textSize="@dimen/x12"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnSettings"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/line"
         app:typeface="@string/font_normal" />
 
-
+    <com.app.gymbuzz.ui.views.AnyTextView
+        android:id="@+id/btnSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x30"
+        android:drawablePadding="@dimen/x5"
+        android:drawableTop="@drawable/settings2"
+        android:text="@string/settings"
+        android:textColor="@color/color_accent"
+        android:textSize="@dimen/x12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnTraineeProfile"
+        app:layout_constraintTop_toBottomOf="@id/line"
+        app:typeface="@string/font_normal" />
 
 
 </android.support.constraint.ConstraintLayout>
