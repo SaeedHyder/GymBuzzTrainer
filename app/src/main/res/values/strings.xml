@@ -56,10 +56,12 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="home">Home</string>
+    <string name="home1">HOME</string>
     <string name="profile">Profile</string>
+    <string name="profile1">PROFILE</string>
     <string name="categories">Categories</string>
     <string name="messages">Messages</string>
-    <string name="settings">Settings</string>
+    <string name="settings">SETTINGS</string>
     <string name="search_hint">Search Ads, User or Category</string>
     <string name="password_sent">Your password will be sent to your \nemail address</string>
 
@@ -99,7 +101,9 @@
 
 
     <string name="notification">Notifications</string>
+    <string name="notification1">NOTIFICATIONS</string>
     <string name="about_us">About Us</string>
+    <string name="about">About</string>
     <string name="feel_free">Feel free to contact us</string>
     <string name="save">Save</string>
     <string name="password_not_equal">New and confirm psasword are not equal</string>
@@ -109,7 +113,10 @@
     <string name="calculate_bmi">Calculate BMI</string>
     <string name="your_bmi">Your BMI</string>
     <string name="please_enter_height">Please enter height in cm</string>
+    <string name="height_error">Please enter height in correct format</string>
+    <string name="wight_error">Please enter weight in correct format</string>
     <string name="please_enter_weight">Please enter weight</string>
+    <string name="please_enter_about">Please enter about you</string>
     <string name="view_profile">View Profile</string>
     <string name="units">Units</string>
     <string name="change_password">Change Password</string>
@@ -122,8 +129,11 @@
     <string name="weight_kg">Weight in kgs</string>
     <string name="weight_lb">Weight in lbs</string>
     <string name="update_profile">Update Profile</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="edit_profile1">EDIT PROFILE</string>
     <string name="update_profile_">UPDATE PROFILE</string>
     <string name="please_enter_fullname">Please enter full name</string>
+    <string name="please_select_gender">Please select gender</string>
     <string name="membership">MEMBERSHIP</string>
     <string name="workout">WORKOUT</string>
     <string name="log">LOG</string>
@@ -138,8 +148,10 @@
     <string name="in_gym_location">In Gym Location</string>
     <string name="req_support">Request Support</string>
     <string name="will_be_imp_beta">Will be implemented in beta</string>
+    <string name="will_be_future_beta">Will be implemented in future version</string>
     <string name="age_">AGE</string>
     <string name="weigh">WEIGHT</string>
+    <string name="weight">Weight</string>
     <string name="change_view">Change View</string>
     <string name="you_did_great">YOU DID GREAT!</string>
     <string name="gym_detail">Gym Detail</string>
@@ -171,6 +183,33 @@
     <string name="support_Log">SUPPORT LOG</string>
     <string name="signin">SIGNIN</string>
     <string name="height">Height</string>
-
+    <string name="job_done">Job Done</string>
+    <string name="completed">Completed</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="select_gender">Select Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="enter_password">Password Field cannot be Empty</string>
+    <string name="enter_confirm_password">Confirm Password Field cannot be Empty</string>
+    <string name="passwordLength">Password cannot be less than 6 characters</string>
+    <string name="confirmpasswordLength">Confirm Password cannot be less than 6 characters</string>
+    <string name="samePassword">New password should be changed from previous password</string>
+    <string name="conform_password_error">confirm password does not match</string>
+    <string name="password_length_alert">Password should be 6 or more characters long.</string>
+    <string name="pass_changed">Password changed successfully.</string>
+    <string name="no_notifaction_found">No notifaction found</string>
+    <string name="support">Support</string>
+    <string name="no_request_found">No support request found</string>
+    <string name="rate">Rate</string>
+    <string name="support_request">Support Request</string>
+    <string name="do_you_want_to_accept_this_request">Do you want to accept this request?</string>
+    <string name="accept">Accept</string>
+    <string name="reject">Reject</string>
+    <string name="do_you_want_to_complete_this_job">Do you want to complete this job?</string>
+    <string name="app_version">App Version</string>
+    <string name="no_completed_job">No completed job found</string>
+    <string name="job_done_succesfully">Job has completed successfully</string>
+    <string name="url_not_avaliable">URL not avaliable</string>
+    <string name="profile_updated">Profile has been updated successfully</string>
 
 </resources>

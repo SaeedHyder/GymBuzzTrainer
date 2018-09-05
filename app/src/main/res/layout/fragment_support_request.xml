@@ -2,38 +2,57 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/transparent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/mainFrame"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/lvRequests"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginBottom="@dimen/x40"
-        android:layout_marginTop="@dimen/x20"
-        android:divider="@null"/>
+        <com.app.gymbuztrainer.ui.views.AnyTextView
+            android:id="@+id/txt_no_data"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/no_request_found"
+            android:textColor="@color/dark_grey"
+            android:textSize="@dimen/x15"
+            android:visibility="gone"
+            app:typeface="Roboto-Regular.ttf"
+
+            />
+
+        <com.app.gymbuztrainer.ui.views.CustomRecyclerView
+            android:id="@+id/lvRequests"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/x40"
+            android:layout_marginTop="@dimen/x20"
+            android:layout_weight="1"
+            android:visibility="visible"
+            android:divider="@color/transparent" />
 
 
-    <Button
-        android:id="@+id/btnViewSupportLog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn"
-        android:text="@string/view_support_log"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:layout_marginEnd="@dimen/x25"
-        android:layout_marginStart="@dimen/x25"
-        android:layout_marginBottom="@dimen/x50"/>
+
+
+        <Button
+            android:id="@+id/btnViewSupportLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/x50"
+            android:layout_marginEnd="@dimen/x25"
+            android:layout_marginStart="@dimen/x25"
+            android:background="@drawable/btn"
+            android:text="@string/view_support_log"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 

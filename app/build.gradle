@@ -32,10 +32,10 @@ android {
 }
 
 ext {
-    supportLibVersion="27.1.1"
-    playServicesVersion="10.2.1"
-    ConstraintLayoutVersion="1.1.0"
-    photoview="2.1.3"
+    supportLibVersion = "27.1.1"
+    playServicesVersion = "11.8.0"
+    ConstraintLayoutVersion = "1.1.0"
+    photoview = "2.1.3"
 }
 
 dependencies {
@@ -53,8 +53,10 @@ dependencies {
     //Design
     implementation 'com.android.support:design:' + supportLibVersion
     //Paly Services
-    implementation 'com.google.firebase:firebase-messaging:' + playServicesVersion
-    implementation 'com.google.android.gms:play-services:' + playServicesVersion
+
+    implementation 'com.google.android.gms:play-services:11.8.0'
+    implementation 'com.google.firebase:firebase-messaging:11.8.0'
+    // implementation 'com.google.firebase:firebase-messaging:' + playServicesVersion
     //Constrainst Layout
     implementation 'com.android.support.constraint:constraint-layout:' + ConstraintLayoutVersion
     //Image Loader Lib
@@ -84,13 +86,15 @@ dependencies {
     // Permission Library
     implementation 'com.yanzhenjie:permission:2.0.0-rc5'
 
-    implementation 'com.github.chrisbanes:PhotoView:'+photoview
+    implementation 'com.github.chrisbanes:PhotoView:' + photoview
 
     /*//Picasso
     implementation 'com.squareup.picasso:picasso:2.5.2'*/
 
     //File picker
     implementation 'com.droidninja:filepicker:2.1.5'
+    implementation 'id.zelory:compressor:2.1.0'
+    implementation 'com.karumi:dexter:4.2.0'
 
     /* implementation 'com.squareup:otto:1.3.8'
             implementation 'com.makeramen:roundedimageview:2.2.1'*/
@@ -101,3 +105,5 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+apply plugin: 'com.google.gms.google-services'

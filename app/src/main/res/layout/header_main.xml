@@ -10,16 +10,16 @@
     <ImageView
         android:id="@+id/btnLeft"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/x10"
-        android:scaleType="fitXY"
+        android:padding="@dimen/x15"
         android:src="@drawable/backbtn"
         android:visibility="visible" />
 
 
-    <com.app.gymbuzz.ui.views.AnyTextView
+    <com.app.gymbuztrainer.ui.views.AnyTextView
         android:id="@+id/txt_subHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,19 +27,18 @@
         android:gravity="center"
         android:text="Template"
         android:textColor="@color/color_accent"
-        android:textSize="@dimen/x22"
-        app:typeface="OpenSans-Regular.ttf" />
+        android:textSize="@dimen/x18"
+        app:typeface="@string/font_bold" />
 
     <ImageView
         android:id="@+id/btnRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginEnd="@dimen/x15"
+        android:layout_marginRight="@dimen/x15"
         android:layout_alignParentRight="true"
-        android:paddingBottom="@dimen/x5"
-        android:paddingTop="@dimen/x5"
-        android:src="@mipmap/ic_launcher"
+  android:padding="@dimen/x7"
+        android:src="@drawable/notificationwithcircle"
         android:visibility="visible"/>
 
     <ImageView
@@ -63,7 +62,7 @@
         android:layout_alignStart="@+id/btnRight2"
         android:layout_alignTop="@+id/btnRight2">
 
-        <com.app.gymbuzz.ui.views.AnyTextView
+        <com.app.gymbuztrainer.ui.views.AnyTextView
             android:id="@+id/txtBadge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

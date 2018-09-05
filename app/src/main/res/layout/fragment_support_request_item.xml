@@ -5,32 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_margin="@dimen/x10"
     android:paddingTop="@dimen/x5">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/x10"
-        android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ivNotification"
             android:layout_width="@dimen/x50"
             android:layout_height="@dimen/x50"
-            android:scaleType="fitXY"
             android:layout_marginEnd="@dimen/x7"
             android:layout_marginStart="@dimen/x20"
-            android:src="@drawable/profilepic" />
+            android:src="@drawable/placeholder" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/x5"
-            android:layout_weight="0.5"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.6"
             android:orientation="vertical">
 
-            <com.app.gymbuzz.ui.views.AnyTextView
+            <com.app.gymbuztrainer.ui.views.AnyTextView
                 android:id="@+id/txtName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -39,7 +38,7 @@
                 app:typeface="@string/font_normal"
                 android:text="Jonela White" />
 
-            <com.app.gymbuzz.ui.views.AnyTextView
+            <com.app.gymbuztrainer.ui.views.AnyTextView
                 android:id="@+id/txtZone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,7 +47,7 @@
                 app:typeface="@string/font_normal"
                 android:text="Zone A" />
 
-            <com.app.gymbuzz.ui.views.AnyTextView
+            <com.app.gymbuztrainer.ui.views.AnyTextView
                 android:id="@+id/txtMachine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,25 +56,16 @@
                 app:typeface="@string/font_normal"
                 android:text="Machine: Triceps" />
 
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.4"
-            android:orientation="vertical">
-
             <LinearLayout
                 android:id="@+id/llDateTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:layout_gravity="top"
+                android:visibility="visible"
+                android:layout_marginTop="@dimen/x3"
+                android:layout_marginBottom="@dimen/x3"
                 android:orientation="horizontal">
 
-                <com.app.gymbuzz.ui.views.AnyTextView
+                <com.app.gymbuztrainer.ui.views.AnyTextView
                     android:id="@+id/tv_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -90,10 +80,12 @@
                 <View
                     android:layout_width="@dimen/x1"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/x2"
-                    android:background="@color/grey" />
+                    android:layout_marginStart="@dimen/x2"
+                    android:layout_marginEnd="@dimen/x2"
+                    android:background="@color/grey"
+                    android:visibility="gone"/>
 
-                <com.app.gymbuzz.ui.views.AnyTextView
+                <com.app.gymbuztrainer.ui.views.AnyTextView
                     android:id="@+id/tv_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -101,10 +93,23 @@
                     android:textColor="@color/black0"
                     android:textSize="@dimen/x10"
                     app:typeface="@string/font_normal"
+                    android:visibility="gone"
                     android:text="4 junly 2017" />
 
 
             </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:orientation="vertical">
+
+
 
             <LinearLayout
                 android:id="@+id/llbtnSupport"
@@ -133,12 +138,19 @@
         </LinearLayout>
 
 
+
+
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:alpha="0.5"
-        android:background="@color/grey" />
+        android:alpha="0.3"
+        android:layout_marginTop="@dimen/x5"
+        android:layout_marginStart="@dimen/x15"
+        android:layout_marginEnd="@dimen/x15"
+        android:background="@color/color_accent" />
+
+
 
 </LinearLayout>

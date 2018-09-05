@@ -39,7 +39,7 @@
             android:background="@drawable/gym_floor_1">
 
 
-            <com.app.gymbuzz.ui.views.AnyTextView
+            <com.app.gymbuztrainer.ui.views.AnyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -70,7 +70,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <com.app.gymbuzz.ui.views.AnyTextView
+                <com.app.gymbuztrainer.ui.views.AnyTextView
                     android:id="@+id/txtHour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                     app:typeface="@string/font_bold"
                     tools:text="01" />
 
-                <com.app.gymbuzz.ui.views.AnyTextView
+                <com.app.gymbuztrainer.ui.views.AnyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
@@ -103,7 +103,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <com.app.gymbuzz.ui.views.AnyTextView
+                <com.app.gymbuztrainer.ui.views.AnyTextView
                     android:id="@+id/txtMinute"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
                     app:typeface="@string/font_bold"
                     tools:text="01" />
 
-                <com.app.gymbuzz.ui.views.AnyTextView
+                <com.app.gymbuztrainer.ui.views.AnyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
@@ -136,7 +136,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <com.app.gymbuzz.ui.views.AnyTextView
+                <com.app.gymbuztrainer.ui.views.AnyTextView
                     android:id="@+id/txtSeconds"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -148,7 +148,7 @@
                     app:typeface="@string/font_bold"
                     tools:text="03" />
 
-                <com.app.gymbuzz.ui.views.AnyTextView
+                <com.app.gymbuztrainer.ui.views.AnyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
@@ -169,7 +169,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <com.app.gymbuzz.ui.views.AnyTextView
+                <com.app.gymbuztrainer.ui.views.AnyTextView
                     android:id="@+id/txtMS"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -181,7 +181,7 @@
                     app:typeface="@string/font_bold"
                     tools:text="45" />
 
-                <com.app.gymbuzz.ui.views.AnyTextView
+                <com.app.gymbuztrainer.ui.views.AnyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
@@ -225,7 +225,7 @@
                         android:padding="@dimen/x5"
                         android:src="@drawable/minuscircle" />
 
-                    <com.app.gymbuzz.ui.views.AnyTextView
+                    <com.app.gymbuztrainer.ui.views.AnyTextView
                         android:id="@+id/txtKg1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -292,7 +292,7 @@
                         android:padding="@dimen/x5"
                         android:src="@drawable/minuscircle" />
 
-                    <com.app.gymbuzz.ui.views.AnyTextView
+                    <com.app.gymbuztrainer.ui.views.AnyTextView
                         android:id="@+id/txtReps1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -379,7 +379,7 @@
                         android:padding="@dimen/x5"
                         android:src="@drawable/minuscircle" />
 
-                    <com.app.gymbuzz.ui.views.AnyTextView
+                    <com.app.gymbuztrainer.ui.views.AnyTextView
                         android:id="@+id/txtKg2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -447,7 +447,7 @@
                         android:padding="@dimen/x5"
                         android:src="@drawable/minuscircle" />
 
-                    <com.app.gymbuzz.ui.views.AnyTextView
+                    <com.app.gymbuztrainer.ui.views.AnyTextView
                         android:id="@+id/txtReps2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -533,7 +533,7 @@
                         android:padding="@dimen/x5"
                         android:src="@drawable/minuscircle" />
 
-                    <com.app.gymbuzz.ui.views.AnyTextView
+                    <com.app.gymbuztrainer.ui.views.AnyTextView
                         android:id="@+id/txtKg3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -600,7 +600,7 @@
                         android:padding="@dimen/x5"
                         android:src="@drawable/minuscircle" />
 
-                    <com.app.gymbuzz.ui.views.AnyTextView
+                    <com.app.gymbuztrainer.ui.views.AnyTextView
                         android:id="@+id/txtReps3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

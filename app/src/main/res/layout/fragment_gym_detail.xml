@@ -22,7 +22,7 @@
             android:src="@drawable/gym_logo" />
 
 
-        <com.app.gymbuzz.ui.views.AnyTextView
+        <com.app.gymbuztrainer.ui.views.AnyTextView
             android:id="@+id/txtGymName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
             app:typeface="@string/font_bold" />
 
 
-        <com.app.gymbuzz.ui.views.AnyTextView
+        <com.app.gymbuztrainer.ui.views.AnyTextView
             android:id="@+id/txtGymAddress"
             android:layout_width="@dimen/x210"
             android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
             android:layout_marginTop="@dimen/x20"
             android:orientation="vertical">
 
-            <com.app.gymbuzz.ui.views.AnyTextView
+            <com.app.gymbuztrainer.ui.views.AnyTextView
                 android:id="@+id/txtStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
             app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
 
-        <com.app.gymbuzz.ui.views.AnyTextView
+        <com.app.gymbuztrainer.ui.views.AnyTextView
             android:id="@+id/anyTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
             app:typeface="@string/font_bold" />
 
 
-        <com.app.gymbuzz.ui.views.AnyTextView
+        <com.app.gymbuztrainer.ui.views.AnyTextView
             android:id="@+id/txtAboutUs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

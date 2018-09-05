@@ -19,7 +19,7 @@
             android:layout_marginStart="@dimen/x25"
             android:layout_marginTop="@dimen/x30">
 
-            <com.app.gymbuzz.ui.views.AnyEditTextView
+            <com.app.gymbuztrainer.ui.views.AnyEditTextView
                 android:id="@+id/edtHeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
             android:layout_marginTop="@dimen/x10"
             android:layout_below="@+id/tilFullName">
 
-            <com.app.gymbuzz.ui.views.AnyEditTextView
+            <com.app.gymbuztrainer.ui.views.AnyEditTextView
                 android:id="@+id/edtWeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
             android:orientation="vertical"
             android:gravity="center">
 
-            <com.app.gymbuzz.ui.views.AnyTextView
+            <com.app.gymbuztrainer.ui.views.AnyTextView
                 android:id="@+id/txtHead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
                 app:typeface="@string/font_normal" />
 
 
-            <com.app.gymbuzz.ui.views.AnyTextView
+            <com.app.gymbuztrainer.ui.views.AnyTextView
                 android:id="@+id/txtBmi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

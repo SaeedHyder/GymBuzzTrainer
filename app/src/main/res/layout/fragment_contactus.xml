@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/color_bg">
 
-    <com.app.gymbuzz.ui.views.AnyTextView
+    <com.app.gymbuztrainer.ui.views.AnyTextView
         android:id="@+id/anyTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,11 +46,10 @@
 
 
 
-    <com.app.gymbuzz.ui.views.AnyTextView
+    <com.app.gymbuztrainer.ui.views.AnyTextView
         android:id="@+id/txtPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="+93205450646"
         android:textColor="@color/black1"
         android:textSize="@dimen/x14"
         app:typeface="@string/font_normal"
@@ -80,11 +79,10 @@
 
 
 
-    <com.app.gymbuzz.ui.views.AnyTextView
+    <com.app.gymbuztrainer.ui.views.AnyTextView
         android:id="@+id/txEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="info@gymsmart.com"
         android:textColor="@color/black1"
         android:textSize="@dimen/x14"
         app:typeface="@string/font_normal"

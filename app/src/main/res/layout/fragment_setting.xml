@@ -5,15 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_bg">
+    android:background="@color/color_bg"
+    android:fillViewport="true">
 
-    <android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <com.app.gymbuzz.ui.views.AnyTextView
+        <com.app.gymbuztrainer.ui.views.AnyTextView
             android:id="@+id/txtViewProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,11 +22,11 @@
             android:layout_marginStart="@dimen/x25"
             android:layout_marginTop="@dimen/x32"
             android:paddingBottom="@dimen/x5"
-            android:visibility="gone"
             android:paddingTop="@dimen/x5"
             android:text="@string/view_profile"
             android:textColor="@color/black1"
             android:textSize="@dimen/x14"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.126"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,26 +37,26 @@
             android:id="@+id/view1"
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/black1"
             android:layout_marginEnd="@dimen/x25"
             android:layout_marginStart="@dimen/x25"
-            android:visibility="gone"
             android:layout_marginTop="@dimen/x15"
+            android:background="@color/black1"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="@+id/txtViewProfile"
             app:layout_constraintTop_toBottomOf="@+id/txtViewProfile" />
 
 
-        <com.app.gymbuzz.ui.views.AnyTextView
+        <com.app.gymbuztrainer.ui.views.AnyTextView
             android:id="@+id/txtUnits"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:paddingBottom="@dimen/x5"
             android:paddingTop="@dimen/x5"
-            android:visibility="gone"
             android:text="@string/units"
             android:textColor="@color/black1"
             android:textSize="@dimen/x14"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="@+id/view1"
             app:layout_constraintTop_toBottomOf="@+id/view1"
             app:typeface="@string/font_normal" />
@@ -67,14 +68,14 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginTop="@dimen/x16"
-            android:checked="false"
-            android:visibility="gone"
-            android:paddingLeft="@dimen/x7"
             android:button="@drawable/btn_checkbox"
+            android:checked="false"
             android:paddingBottom="@dimen/x5"
+            android:paddingLeft="@dimen/x7"
             android:paddingTop="@dimen/x5"
             android:text="Lbs"
             android:textColor="@color/black1"
+            android:visibility="gone"
             app:layout_constraintEnd_toStartOf="@+id/cbKgs"
             app:layout_constraintTop_toBottomOf="@+id/view1" />
 
@@ -84,14 +85,14 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginTop="@dimen/x16"
-            android:paddingBottom="@dimen/x5"
-            android:paddingTop="@dimen/x5"
-            android:paddingLeft="@dimen/x7"
-            android:visibility="gone"
-            android:text="Kgs"
-            android:checked="true"
             android:button="@drawable/btn_checkbox"
+            android:checked="true"
+            android:paddingBottom="@dimen/x5"
+            android:paddingLeft="@dimen/x7"
+            android:paddingTop="@dimen/x5"
+            android:text="Kgs"
             android:textColor="@color/black1"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.91"
             app:layout_constraintStart_toEndOf="@id/txtUnits"
@@ -101,70 +102,76 @@
             android:id="@+id/view2"
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/black1"
             android:layout_marginEnd="@dimen/x25"
-            android:visibility="gone"
             android:layout_marginStart="@dimen/x25"
             android:layout_marginTop="@dimen/x15"
+            android:background="@color/black1"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="@+id/txtUnits"
             app:layout_constraintTop_toBottomOf="@+id/txtUnits" />
 
-
-        <com.app.gymbuzz.ui.views.AnyTextView
-            android:id="@+id/txtNotification"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/x25"
+            android:layout_marginStart="@dimen/x25"
             android:layout_marginTop="@dimen/x30"
+            android:orientation="horizontal"
             android:paddingBottom="@dimen/x5"
-            android:paddingTop="@dimen/x5"
-            android:text="@string/notification"
-            android:textColor="@color/black1"
-            android:textSize="@dimen/x14"
-            app:layout_constraintStart_toStartOf="@+id/view1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:typeface="@string/font_normal" />
+            android:paddingTop="@dimen/x5">
 
-        <ToggleButton
-            android:id="@+id/toggleNotification"
-            android:layout_width="@dimen/x35"
-            android:layout_height="@dimen/x22"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="@dimen/x30"
-            android:background="@drawable/selector_toggle"
-            android:checked="true"
-            android:gravity="right|center_vertical"
-            android:text=""
-            android:textOff=""
-            android:textOn=""
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.91"
-            app:layout_constraintStart_toEndOf="@+id/txtNotification"
-            app:layout_constraintTop_toTopOf="parent"/>
+            <com.app.gymbuztrainer.ui.views.AnyTextView
+                android:id="@+id/txtNotification"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:alpha="0.8"
+                android:text="@string/notification"
+                android:textColor="@color/black"
+                android:textSize="@dimen/x14"
+                app:layout_constraintStart_toStartOf="@+id/view1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:typeface="@string/font_normal" />
+
+            <ToggleButton
+                android:id="@+id/toggleNotification"
+                android:layout_width="@dimen/x35"
+                android:layout_height="@dimen/x22"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/selector_toggle"
+                android:checked="true"
+                android:gravity="right|center_vertical"
+                android:text=""
+                android:textOff=""
+                android:textOn="" />
+
+        </LinearLayout>
 
 
         <View
-            android:id="@+id/view3"
+
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/black1"
             android:layout_marginEnd="@dimen/x25"
             android:layout_marginStart="@dimen/x25"
             android:layout_marginTop="@dimen/x15"
+            android:background="@color/black1"
             app:layout_constraintStart_toStartOf="@+id/txtNotification"
             app:layout_constraintTop_toBottomOf="@+id/txtNotification" />
 
 
-        <com.app.gymbuzz.ui.views.AnyTextView
+        <com.app.gymbuztrainer.ui.views.AnyTextView
             android:id="@+id/txtChangePassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/x25"
             android:layout_marginStart="@dimen/x25"
             android:layout_marginTop="@dimen/x16"
+            android:alpha="0.8"
             android:paddingBottom="@dimen/x5"
             android:paddingTop="@dimen/x5"
             android:text="@string/change_password"
-            android:textColor="@color/black1"
+            android:textColor="@color/black"
             android:textSize="@dimen/x14"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.126"
@@ -173,27 +180,28 @@
             app:typeface="@string/font_normal" />
 
         <View
-            android:id="@+id/view4"
+
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/black1"
             android:layout_marginEnd="@dimen/x25"
             android:layout_marginStart="@dimen/x25"
             android:layout_marginTop="@dimen/x15"
+            android:background="@color/black1"
             app:layout_constraintStart_toStartOf="@+id/txtChangePassword"
             app:layout_constraintTop_toBottomOf="@+id/txtChangePassword" />
 
-        <com.app.gymbuzz.ui.views.AnyTextView
+        <com.app.gymbuztrainer.ui.views.AnyTextView
             android:id="@+id/txtAboutUs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/x25"
             android:layout_marginStart="@dimen/x25"
             android:layout_marginTop="@dimen/x16"
+            android:alpha="0.8"
             android:paddingBottom="@dimen/x5"
             android:paddingTop="@dimen/x5"
             android:text="@string/about_us"
-            android:textColor="@color/black1"
+            android:textColor="@color/black"
             android:textSize="@dimen/x14"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.126"
@@ -202,27 +210,28 @@
             app:typeface="@string/font_normal" />
 
         <View
-            android:id="@+id/view5"
+
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/black1"
             android:layout_marginEnd="@dimen/x25"
             android:layout_marginStart="@dimen/x25"
             android:layout_marginTop="@dimen/x15"
+            android:background="@color/black1"
             app:layout_constraintStart_toStartOf="@+id/txtAboutUs"
             app:layout_constraintTop_toBottomOf="@+id/txtAboutUs" />
 
-        <com.app.gymbuzz.ui.views.AnyTextView
-            android:id="@+id/txtContactUs"
+        <com.app.gymbuztrainer.ui.views.AnyTextView
+            android:id="@+id/txtRate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/x25"
             android:layout_marginStart="@dimen/x25"
             android:layout_marginTop="@dimen/x16"
+            android:alpha="0.8"
             android:paddingBottom="@dimen/x5"
             android:paddingTop="@dimen/x5"
-            android:text="@string/contact_us"
-            android:textColor="@color/black1"
+            android:text="@string/rate"
+            android:textColor="@color/black"
             android:textSize="@dimen/x14"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.126"
@@ -231,28 +240,28 @@
             app:typeface="@string/font_normal" />
 
         <View
-            android:id="@+id/view6"
+
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/black1"
             android:layout_marginEnd="@dimen/x25"
             android:layout_marginStart="@dimen/x25"
             android:layout_marginTop="@dimen/x15"
-            app:layout_constraintStart_toStartOf="@+id/txtContactUs"
-            app:layout_constraintTop_toBottomOf="@+id/txtContactUs" />
+            android:background="@color/black1"
+            app:layout_constraintStart_toStartOf="@+id/txtAboutUs"
+            app:layout_constraintTop_toBottomOf="@+id/txtAboutUs" />
 
-        <com.app.gymbuzz.ui.views.AnyTextView
-            android:id="@+id/txtLogout"
+        <com.app.gymbuztrainer.ui.views.AnyTextView
+            android:id="@+id/txtContactUs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/x25"
             android:layout_marginStart="@dimen/x25"
             android:layout_marginTop="@dimen/x16"
+            android:alpha="0.8"
             android:paddingBottom="@dimen/x5"
             android:paddingTop="@dimen/x5"
-            android:text="@string/log_out"
-            android:layout_marginBottom="@dimen/x40"
-            android:textColor="@color/black1"
+            android:text="@string/contact_us"
+            android:textColor="@color/black"
             android:textSize="@dimen/x14"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.126"
@@ -260,7 +269,93 @@
             app:layout_constraintTop_toBottomOf="@+id/view6"
             app:typeface="@string/font_normal" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginEnd="@dimen/x25"
+            android:layout_marginStart="@dimen/x25"
+            android:layout_marginTop="@dimen/x15"
+            android:background="@color/black1" />
+
+        <com.app.gymbuztrainer.ui.views.AnyTextView
+            android:id="@+id/txtLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/x25"
+            android:layout_marginStart="@dimen/x25"
+            android:layout_marginTop="@dimen/x16"
+            android:alpha="0.8"
+            android:paddingBottom="@dimen/x5"
+            android:paddingTop="@dimen/x5"
+            android:text="@string/log_out"
+            android:textColor="@color/black"
+            android:textSize="@dimen/x14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.126"
+            app:layout_constraintStart_toStartOf="@+id/view7"
+            app:layout_constraintTop_toBottomOf="@+id/view7"
+            app:typeface="@string/font_normal" />
 
 
-    </android.support.constraint.ConstraintLayout>
+        <com.app.gymbuztrainer.ui.views.AnyTextView
+            android:id="@+id/txtAppVersion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x25"
+            android:gravity="center_horizontal"
+            android:paddingBottom="@dimen/x5"
+            android:paddingTop="@dimen/x5"
+            android:text="App Version 1.01"
+            android:textColor="@color/black1"
+            android:textSize="@dimen/x14"
+            app:typeface="@string/font_normal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/x10"
+            android:layout_marginStart="@dimen/x10"
+            android:layout_marginTop="@dimen/x10"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/btn_fb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/x15"
+                android:src="@drawable/fb" />
+
+            <ImageView
+                android:id="@+id/btn_insta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/x15"
+                android:src="@drawable/insta" />
+
+            <ImageView
+                android:id="@+id/btn_snapchat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/x15"
+                android:src="@drawable/snapchat" />
+
+            <ImageView
+                android:id="@+id/btn_twitter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/x15"
+                android:src="@drawable/twitter" />
+
+            <ImageView
+                android:id="@+id/btn_youtube"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/x15"
+                android:src="@drawable/youtube" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 </ScrollView>

@@ -17,30 +17,31 @@
             android:layout_height="@dimen/x150"
             android:layout_marginTop="@dimen/x30"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/profilepic" />
+            android:src="@drawable/placeholder" />
 
-        <com.app.gymbuzz.ui.views.AnyTextView
+        <com.app.gymbuztrainer.ui.views.AnyTextView
             android:id="@+id/txtName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/x25"
             android:layout_marginTop="@dimen/x40"
             android:layout_below="@+id/civProfilePic"
-            android:text="Jhon Doe (Trainer)"
+            android:hint="Name"
             android:textColor="@color/color_accent"
-            android:textSize="@dimen/x23"
+            android:textSize="@dimen/x18"
             app:typeface="@string/font_normal" />
 
-        <com.app.gymbuzz.ui.views.AnyTextView
+        <com.app.gymbuztrainer.ui.views.AnyTextView
             android:id="@+id/txtEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/x25"
             android:layout_marginTop="@dimen/x5"
             android:layout_below="@+id/txtName"
-            android:text="jhondoe@gymbuzz.com"
+            android:hint="Email"
             android:textColor="@color/black0"
-            android:textSize="@dimen/x16"
+            android:textSize="@dimen/x13"
+            android:alpha="0.9"
             app:typeface="@string/font_normal" />
 
         <LinearLayout
@@ -49,26 +50,29 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/txtEmail"
             android:layout_marginTop="@dimen/x30"
+            android:gravity="center_horizontal"
             android:layout_marginStart="@dimen/x25"
             android:orientation="vertical">
 
-            <com.app.gymbuzz.ui.views.AnyTextView
+            <com.app.gymbuztrainer.ui.views.AnyTextView
                 android:id="@+id/txtAgeValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="24"
+                android:hint="-"
+                android:layout_gravity="center"
                 android:textColor="@color/color_accent"
-                android:textSize="@dimen/x20"
+                android:textSize="@dimen/x18"
                 app:typeface="@string/font_normal" />
 
-            <com.app.gymbuzz.ui.views.AnyTextView
+            <com.app.gymbuztrainer.ui.views.AnyTextView
                 android:id="@+id/txtAge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/x5"
                 android:text="@string/age_"
                 android:textColor="@color/black0"
-                android:textSize="@dimen/x16"
+                android:textSize="@dimen/x12"
+                android:alpha="0.8"
                 app:typeface="@string/font_normal" />
 
         </LinearLayout>
@@ -81,25 +85,27 @@
             android:layout_toEndOf="@+id/llAge"
             android:layout_marginTop="@dimen/x30"
             android:layout_marginStart="@dimen/x25"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <com.app.gymbuzz.ui.views.AnyTextView
+            <com.app.gymbuztrainer.ui.views.AnyTextView
                 android:id="@+id/txtWeightValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="61 lb"
                 android:textColor="@color/color_accent"
-                android:textSize="@dimen/x20"
+                android:hint="-"
+                android:textSize="@dimen/x18"
                 app:typeface="@string/font_normal" />
 
-            <com.app.gymbuzz.ui.views.AnyTextView
+            <com.app.gymbuztrainer.ui.views.AnyTextView
                 android:id="@+id/txtWeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/x5"
                 android:text="@string/weigh"
                 android:textColor="@color/black0"
-                android:textSize="@dimen/x16"
+                android:textSize="@dimen/x12"
+                android:alpha="0.8"
                 app:typeface="@string/font_normal" />
 
         </LinearLayout>
@@ -111,19 +117,20 @@
             android:layout_below="@id/txtEmail"
             android:layout_toEndOf="@+id/llWeight"
             android:layout_marginTop="@dimen/x30"
+            android:gravity="center_horizontal"
             android:layout_marginStart="@dimen/x25"
             android:orientation="vertical">
 
-            <com.app.gymbuzz.ui.views.AnyTextView
+            <com.app.gymbuztrainer.ui.views.AnyTextView
                 android:id="@+id/txtHeightValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="159 cm"
+                android:hint="-"
                 android:textColor="@color/color_accent"
-                android:textSize="@dimen/x20"
+                android:textSize="@dimen/x18"
                 app:typeface="@string/font_normal" />
 
-            <com.app.gymbuzz.ui.views.AnyTextView
+            <com.app.gymbuztrainer.ui.views.AnyTextView
                 android:id="@+id/txtHeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -131,23 +138,39 @@
                 android:text="@string/height"
                 android:textAllCaps="true"
                 android:textColor="@color/black0"
-                android:textSize="@dimen/x16"
+                android:textSize="@dimen/x12"
+                android:alpha="0.8"
                 app:typeface="@string/font_normal" />
 
         </LinearLayout>
 
-        <com.app.gymbuzz.ui.views.AnyTextView
-            android:id="@+id/txtAboutUs"
-            android:layout_width="match_parent"
+        <com.app.gymbuztrainer.ui.views.AnyTextView
+            android:id="@+id/txt_about"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/llHeight"
             android:layout_marginTop="@dimen/x25"
             android:layout_marginEnd="@dimen/x25"
             android:layout_marginStart="@dimen/x25"
-            android:layout_marginBottom="@dimen/x40"
-            android:layout_below="@+id/llHeight"
-            android:text="@string/lorem_ipsum"
+            android:layout_marginBottom="@dimen/x5"
+            android:text="@string/about"
             android:textColor="@color/black0"
-            android:textSize="@dimen/x14"
+            android:textSize="@dimen/x12"
+            android:alpha="0.8"
+            app:typeface="@string/font_normal" />
+
+        <com.app.gymbuztrainer.ui.views.AnyTextView
+            android:id="@+id/txtAboutUs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/x25"
+            android:layout_marginStart="@dimen/x25"
+            android:layout_marginBottom="@dimen/x20"
+            android:layout_below="@+id/txt_about"
+            android:hint="@string/about"
+            android:textColor="@color/black"
+            android:alpha="0.5"
+            android:textSize="@dimen/x13"
             app:typeface="@string/font_normal" />
 
     </RelativeLayout>

@@ -27,7 +27,7 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-    <com.app.gymbuzz.ui.views.AnyTextView
+    <com.app.gymbuztrainer.ui.views.AnyTextView
         android:id="@+id/txtHeadder"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

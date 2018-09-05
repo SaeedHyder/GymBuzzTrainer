@@ -1,120 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_bg">
+    android:background="@color/color_bg"
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/ivNotification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/x16"
-        android:padding="@dimen/x10"
-        android:src="@drawable/notificationwithcircle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/ivLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/x30"
-        android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@+id/glLogo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/x35"
+        android:src="@drawable/logo1" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/glLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.30" />
-
-
-    <android.support.constraint.Guideline
-        android:id="@+id/glskeletons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
-
-
-    <com.app.gymbuzz.ui.views.AnyTextView
-        android:id="@+id/btnFloorPlan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/x30"
-        android:drawablePadding="@dimen/x5"
-        android:drawableTop="@drawable/floorplan"
-        android:text="@string/floor_plan"
-        android:textColor="@color/color_accent"
-        android:textSize="@dimen/x12"
-        app:layout_constraintEnd_toStartOf="@id/btnSupportPlan"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/glskeletons"
-        app:typeface="@string/font_normal" />
-
-    <com.app.gymbuzz.ui.views.AnyTextView
-        android:id="@+id/btnSupportPlan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/x30"
-        android:drawablePadding="@dimen/x5"
-        android:drawableTop="@drawable/supportplan"
-        android:text="@string/support_plan"
-        android:textColor="@color/color_accent"
-        android:textSize="@dimen/x12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnFloorPlan"
-        app:layout_constraintTop_toBottomOf="@id/glskeletons"
-        app:typeface="@string/font_normal" />
-
-    <View
-        android:id="@+id/line"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginLeft="@dimen/x30"
-        android:layout_marginRight="@dimen/x30"
-        android:layout_marginTop="@dimen/x30"
-        android:background="@color/grey"
-        app:layout_constraintTop_toBottomOf="@id/btnFloorPlan"
-        app:layout_constraintBottom_toTopOf="@+id/btnTraineeProfile"/>
-
-    <com.app.gymbuzz.ui.views.AnyTextView
-        android:id="@+id/btnTraineeProfile"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/x30"
-        android:drawablePadding="@dimen/x5"
-        android:drawableTop="@drawable/gymprofile"
-        android:text="@string/trainee_profile"
-        android:textColor="@color/color_accent"
-        android:textSize="@dimen/x12"
-        app:layout_constraintEnd_toStartOf="@id/btnSettings"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/line"
-        app:typeface="@string/font_normal" />
+        android:layout_marginTop="@dimen/x50"
+        android:orientation="vertical">
 
-    <com.app.gymbuzz.ui.views.AnyTextView
-        android:id="@+id/btnSettings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/x30"
-        android:drawablePadding="@dimen/x5"
-        android:drawableTop="@drawable/settings2"
-        android:text="@string/settings"
-        android:textColor="@color/color_accent"
-        android:textSize="@dimen/x12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnTraineeProfile"
-        app:layout_constraintTop_toBottomOf="@id/line"
-        app:typeface="@string/font_normal" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
 
-</android.support.constraint.ConstraintLayout>
+            <com.app.gymbuztrainer.ui.views.AnyTextView
+                android:id="@+id/btnFloorPlan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/x5"
+                android:drawableTop="@drawable/floorplan"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/x25"
+                android:text="@string/floor_plan"
+                android:textColor="@color/dark_green_text"
+                android:textSize="@dimen/x12"
+                app:typeface="@string/font_normal" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/grey" />
+
+            <com.app.gymbuztrainer.ui.views.AnyTextView
+                android:id="@+id/btnSupportPlan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/x5"
+                android:drawableTop="@drawable/supportplan"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/x25"
+                android:text="@string/support_plan"
+                android:textColor="@color/dark_green_text"
+                android:textSize="@dimen/x12"
+                app:typeface="@string/font_normal" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginStart="@dimen/x20"
+            android:layout_marginEnd="@dimen/x20"
+            android:background="@color/grey" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.app.gymbuztrainer.ui.views.AnyTextView
+                android:id="@+id/btnTraineeProfile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/x5"
+                android:drawableTop="@drawable/gymprofile"
+                android:gravity="center"
+                android:padding="@dimen/x25"
+                android:text="@string/trainee_profile"
+                android:textColor="@color/dark_green_text"
+                android:textSize="@dimen/x12"
+                app:typeface="@string/font_normal" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/grey" />
+
+            <com.app.gymbuztrainer.ui.views.AnyTextView
+                android:id="@+id/btnSettings"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/x5"
+                android:drawableTop="@drawable/settings"
+                android:gravity="center"
+                android:padding="@dimen/x25"
+                android:text="@string/settings"
+                android:textColor="@color/dark_green_text"
+                android:textSize="@dimen/x12"
+                app:typeface="@string/font_normal" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

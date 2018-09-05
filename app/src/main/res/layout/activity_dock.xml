@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:background="@color/color_bg">
 
-        <com.app.gymbuzz.ui.views.TitleBar
+        <com.app.gymbuztrainer.ui.views.TitleBar
             android:id="@+id/header_main"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

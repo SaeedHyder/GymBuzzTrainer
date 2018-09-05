@@ -10,7 +10,7 @@
 
 
 
-    <com.app.gymbuzz.ui.views.AnyTextView
+    <com.app.gymbuztrainer.ui.views.AnyTextView
         android:id="@+id/txtName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         android:orientation="horizontal">
 
 
-        <com.app.gymbuzz.ui.views.AnyTextView
+        <com.app.gymbuztrainer.ui.views.AnyTextView
             android:id="@+id/txtReps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
             android:textSize="@dimen/x15"
             app:typeface="@string/font_normal" />
 
-        <com.app.gymbuzz.ui.views.AnyTextView
+        <com.app.gymbuztrainer.ui.views.AnyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -59,7 +59,7 @@
             android:background="@color/colorLogItemDetail"/>
 
 
-        <com.app.gymbuzz.ui.views.AnyTextView
+        <com.app.gymbuztrainer.ui.views.AnyTextView
             android:id="@+id/txtKgs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
             android:textSize="@dimen/x15"
             app:typeface="@string/font_normal" />
 
-        <com.app.gymbuzz.ui.views.AnyTextView
+        <com.app.gymbuztrainer.ui.views.AnyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -88,7 +88,7 @@
             android:background="@color/colorLogItemDetail"/>
 
 
-        <com.app.gymbuzz.ui.views.AnyTextView
+        <com.app.gymbuztrainer.ui.views.AnyTextView
             android:id="@+id/txtSets"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
             android:textSize="@dimen/x15"
             app:typeface="@string/font_normal" />
 
-        <com.app.gymbuzz.ui.views.AnyTextView
+        <com.app.gymbuztrainer.ui.views.AnyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
