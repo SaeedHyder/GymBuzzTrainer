@@ -273,9 +273,11 @@ public class SettingFragment extends BaseFragment {
                 dialogHelper.initlogout(R.layout.dialog_logout, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        prefHelper.setLoginStatus(false);
+                        getDockActivity().popBackStackTillEntry(0);
+                        getDockActivity().addDockableFragment(LoginFragment.newInstance(), "LoginFragment");
                         dialogHelper.hideDialog();
-                        serviceHelper.enqueueCall(headerWebService.logout(AppConstants.Device_Type), LOGOUT);
+                     //   serviceHelper.enqueueCall(headerWebService.logout(AppConstants.Device_Type), LOGOUT);
 
                     }
                 }, new View.OnClickListener() {

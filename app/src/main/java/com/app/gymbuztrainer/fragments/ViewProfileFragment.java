@@ -105,7 +105,7 @@ public class ViewProfileFragment extends BaseFragment {
             txtWeightValue.setText(prefHelper.getUser().getWeight() != null ? prefHelper.getUser().getWeight() : "-");
             txtAboutUs.setText(prefHelper.getUser().getAbout() != null ? prefHelper.getUser().getAbout() : "-");
 
-            DateFormat format = new SimpleDateFormat(AppConstants.DateFormat_YMD, Locale.ENGLISH);
+            DateFormat format = new SimpleDateFormat(AppConstants.DATE_FORMAT_APP, Locale.ENGLISH);
             Date date = null;
             try {
                 if (prefHelper.getUser().getDob() != null)

@@ -1,6 +1,5 @@
 package com.app.gymbuztrainer.ui.binders;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +11,6 @@ import com.app.gymbuztrainer.helpers.BasePreferenceHelper;
 import com.app.gymbuztrainer.helpers.DialogHelper;
 import com.app.gymbuztrainer.interfaces.RequestInterface;
 import com.app.gymbuztrainer.ui.viewbinders.abstracts.RecyclerViewBinder;
-import com.app.gymbuztrainer.ui.viewbinders.abstracts.ViewBinder;
 import com.app.gymbuztrainer.ui.views.AnyTextView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -30,6 +28,7 @@ public class BinderRequests extends RecyclerViewBinder<AllRequestSupportEnt> {
     private ImageLoader imageLoader;
     private BasePreferenceHelper preferenceHelper;
     private RequestInterface requestInterface;
+    private  ViewHolder globleHolder;
 
     public BinderRequests(Context context, BasePreferenceHelper prefHelper,RequestInterface requestInterface) {
         super(R.layout.fragment_support_request_item);
@@ -49,6 +48,7 @@ public class BinderRequests extends RecyclerViewBinder<AllRequestSupportEnt> {
     public void bindView(final AllRequestSupportEnt entity, final int position, Object holder, Context context) {
 
         ViewHolder viewHolder = (ViewHolder)holder;
+        globleHolder= (ViewHolder)holder;
 
         viewHolder.llbtnSupport.setVisibility(View.VISIBLE);
         viewHolder.llDateTime.setVisibility(View.GONE);
@@ -110,10 +110,6 @@ public class BinderRequests extends RecyclerViewBinder<AllRequestSupportEnt> {
         dialogHelper.initRequestDialoge(R.layout.request_dialoge, new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewHolder.btnSupport.setBackground(context.getResources().getDrawable(R.drawable.btn));
-                viewHolder.btnSupport.setTextColor(context.getResources().getColor(R.color.white));
-                viewHolder.btnSupport.setText(R.string.job_done);
-                entity.setAccepted(true);
                 requestInterface.onRequestClick(entity,position);
                 dialogHelper.hideDialog();
             }
@@ -126,6 +122,16 @@ public class BinderRequests extends RecyclerViewBinder<AllRequestSupportEnt> {
         dialogHelper.setCancelable(false);
         dialogHelper.showDialog();
     }
+
+  /*  @Override
+    public void onSuccess(String message) {
+
+        globleHolder.btnSupport.setBackground(context.getResources().getDrawable(R.drawable.btn));
+        globleHolder.btnSupport.setTextColor(context.getResources().getColor(R.color.white));
+        globleHolder.btnSupport.setText(R.string.job_done);
+        //entity.setAccepted(true);
+
+    }*/
 
 
     static class ViewHolder extends BaseViewHolder {

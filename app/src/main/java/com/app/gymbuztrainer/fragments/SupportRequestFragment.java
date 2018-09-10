@@ -23,7 +23,6 @@ import com.app.gymbuztrainer.ui.views.CustomRecyclerView;
 import com.app.gymbuztrainer.ui.views.TitleBar;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,7 +50,9 @@ public class SupportRequestFragment extends BaseFragment implements RequestInter
     LinearLayout mainFrame;
     private ArrayList<AllRequestSupportEnt> collection = new ArrayList<>();
     private ArrayListAdapter<AllRequestSupportEnt> adapter;
-    private String jobDonePosition;
+    private Integer jobDonePosition;
+    private Integer onAcceptPosition;
+
 
 
     public static SupportRequestFragment newInstance() {
@@ -88,30 +89,7 @@ public class SupportRequestFragment extends BaseFragment implements RequestInter
 
     }
 
-    @Override
-    public void ResponseSuccess(Object result, String Tag, String message) {
-        super.ResponseSuccess(result, Tag, message);
-        switch (Tag) {
-            case ALLREQUESTSUPPORT:
-                bindData((ArrayList<AllRequestSupportEnt>) result);
-                mainFrame.setVisibility(View.VISIBLE);
-                break;
 
-            case ACCEPTREQUEST:
-                UIHelper.showShortToastInCenter(getDockActivity(), message);
-                break;
-
-            case MARKJOBDONE:
-                if (jobDonePosition != null) {
-                    collection.remove(Integer.parseInt(jobDonePosition));
-                    lvRequests.getAdapter().notifyItemRemoved(Integer.parseInt(jobDonePosition));
-                }
-
-                UIHelper.showShortToastInCenter(getDockActivity(), getMainActivity().getResourceString(R.string.job_done_succesfully));
-                //   serviceHelper.enqueueCall(headerWebService.GetAllRequestSupport(), ALLREQUESTSUPPORT);
-                break;
-        }
-    }
 
     @Override
     public void setTitleBar(TitleBar titleBar) {
@@ -154,14 +132,43 @@ public class SupportRequestFragment extends BaseFragment implements RequestInter
 
     @Override
     public void onRequestClick(AllRequestSupportEnt entity, int position) {
-
+        onAcceptPosition=position;
         serviceHelper.enqueueCall(headerWebService.AcceptRequest(entity.getRequestSupportID()), ACCEPTREQUEST);
     }
 
     @Override
     public void onJobDoneClick(AllRequestSupportEnt entity, int position) {
-        jobDonePosition = String.valueOf(position);
+        jobDonePosition = position;
         serviceHelper.enqueueCall(headerWebService.markJobDone(entity.getRequestSupportID()), MARKJOBDONE);
+    }
+
+    @Override
+    public void ResponseSuccess(Object result, String Tag, String message) {
+        super.ResponseSuccess(result, Tag, message);
+        switch (Tag) {
+            case ALLREQUESTSUPPORT:
+                bindData((ArrayList<AllRequestSupportEnt>) result);
+                mainFrame.setVisibility(View.VISIBLE);
+                break;
+
+            case ACCEPTREQUEST:
+                collection.get((int)onAcceptPosition).setAccepted(true);
+                lvRequests.notifyDataSetChanged();
+                UIHelper.showShortToastInCenter(getDockActivity(), message);
+
+                break;
+
+            case MARKJOBDONE:
+                if (jobDonePosition != null) {
+                    collection.remove((int)jobDonePosition);
+                    lvRequests.notifyDataSetChanged();
+                    //  lvRequests.getAdapter().notifyItemRemoved(jobDonePosition);
+                }
+
+                UIHelper.showShortToastInCenter(getDockActivity(), getMainActivity().getResourceString(R.string.job_done_succesfully));
+                //   serviceHelper.enqueueCall(headerWebService.GetAllRequestSupport(), ALLREQUESTSUPPORT);
+                break;
+        }
     }
 
 

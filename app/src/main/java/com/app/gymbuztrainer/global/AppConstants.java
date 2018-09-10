@@ -7,7 +7,7 @@ public class AppConstants {
     public static final String SOCIAL_MEDIA_TYPE = "facebook";
     public static int INTENT_ID = 100;
     public static final String SERVER_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
-    public static final String DATE_FORMAT_APP = "dd-MM-yyyy";
+    public static final String DATE_FORMAT_APP = "dd/MM/yyyy";
     public static String DateFormat_YMD = "yyyy-MM-dd";
     //Firebase Constants
     // broadcast receiver intent filters

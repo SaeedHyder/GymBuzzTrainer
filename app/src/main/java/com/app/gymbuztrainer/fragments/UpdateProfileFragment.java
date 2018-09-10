@@ -190,47 +190,40 @@ public class UpdateProfileFragment extends BaseFragment implements MainActivity.
 
         if (edtFullName.getText().toString().length() > 0 && !edtFullName.getText().toString().trim().equals("")) {
             if (edtHeight.getText().toString().length() > 0 && !edtHeight.getText().toString().trim().equals("")) {
-                if (!edtHeight.getText().toString().trim().equals(".") && !(edtHeight.getText().toString().trim().contains(".."))) {
-                    if (edtWeight.getText().toString().length() > 0 && !edtWeight.getText().toString().trim().equals("")) {
-                        if (!edtWeight.getText().toString().trim().equals(".") && !(edtWeight.getText().toString().trim().contains(".."))) {
-                            if (txtTextBox.getText().toString().length() > 0 && !txtTextBox.getText().toString().trim().equals("")) {
-                                if (spGender.getSelectedItemPosition() != 0) {
-                                    return true;
-                                } else {
-                                    UIHelper.showShortToastInCenter(getDockActivity(), getMainActivity().getResourceString(R.string.please_select_gender));
-                                }
-                            } else {
-                                txtTextBox.setError(getMainActivity().getResourceString(R.string.please_enter_about));
-                            }
-                        }else{
-                            edtWeight.setError(getMainActivity().getResourceString(R.string.wight_error));
+                if (edtWeight.getText().toString().length() > 0 && !edtWeight.getText().toString().trim().equals("")) {
+                    if (txtTextBox.getText().toString().length() > 0 && !txtTextBox.getText().toString().trim().equals("")) {
+                        if (spGender.getSelectedItemPosition() != 0) {
+                            return true;
+                        } else {
+                            UIHelper.showShortToastInCenter(getDockActivity(), getMainActivity().getResourceString(R.string.please_select_gender));
                         }
                     } else {
-                            edtWeight.setError(getMainActivity().getResourceString(R.string.please_enter_weight));
-                        }
-                    } else {
-                        edtHeight.setError(getMainActivity().getResourceString(R.string.height_error));
+                        txtTextBox.setError(getMainActivity().getResourceString(R.string.please_enter_about));
                     }
+
                 } else {
-                    edtHeight.setError(getMainActivity().getResourceString(R.string.please_enter_height));
+                    edtWeight.setError(getMainActivity().getResourceString(R.string.please_enter_weight));
                 }
             } else {
-                edtFullName.setError(getMainActivity().getResourceString(R.string.please_enter_fullname));
+                edtHeight.setError(getMainActivity().getResourceString(R.string.please_enter_height));
             }
-
-
-            return false;
+        } else {
+            edtFullName.setError(getMainActivity().getResourceString(R.string.please_enter_fullname));
         }
 
-        private void setGenderData () {
 
-            genderList = new ArrayList<String>();
+        return false;
+    }
 
-            genderList.add(getMainActivity().getResourceString(R.string.select_gender));
-            genderList.add(getMainActivity().getResourceString(R.string.male));
-            genderList.add(getMainActivity().getResourceString(R.string.female));
+    private void setGenderData() {
 
-            genderAdapter = new ArrayAdapter<String>(getDockActivity(), R.layout.spinner_item, genderList);
+        genderList = new ArrayList<String>();
+
+        genderList.add(getMainActivity().getResourceString(R.string.select_gender));
+        genderList.add(getMainActivity().getResourceString(R.string.male));
+        genderList.add(getMainActivity().getResourceString(R.string.female));
+
+        genderAdapter = new ArrayAdapter<String>(getDockActivity(), R.layout.spinner_item, genderList);
 
       /*  genderAdapter= new ArrayAdapter<String>(getDockActivity()
                 , android.R.layout.simple_spinner_item, genderList) {
@@ -249,179 +242,201 @@ public class UpdateProfileFragment extends BaseFragment implements MainActivity.
             }
 
         };*/
-            genderAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-            spGender.setAdapter(genderAdapter);
-            genderAdapter.notifyDataSetChanged();
+        genderAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        spGender.setAdapter(genderAdapter);
+        genderAdapter.notifyDataSetChanged();
 
-        }
+    }
 
-        @OnClick({R.id.civProfilePic, R.id.btnUpdate, R.id.btn_dob})
-        public void onViewClicked (View view){
-            switch (view.getId()) {
+    @OnClick({R.id.civProfilePic, R.id.btnUpdate, R.id.btn_dob})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
 
-                case R.id.civProfilePic:
-                    requestCameraPermission();
-                    break;
+            case R.id.civProfilePic:
+                requestCameraPermission();
+                break;
 
-                case R.id.btnUpdate:
-                    if (isValidated()) {
-                        MultipartBody.Part filePart = null;
-                        if (profilePic != null) {
-                            filePart = MultipartBody.Part.createFormData("file", profilePic.getName(), RequestBody.create(MediaType.parse("image"), profilePic));
-                        }
+            case R.id.btnUpdate:
+                if (isValidated() ) {
 
-                        RequestBody fullname = RequestBody.create(MediaType.parse("text/plain"), edtFullName.getText().toString() + "");
-                        RequestBody gender = RequestBody.create(MediaType.parse("text/plain"), spGender.getSelectedItemPosition() == 1 ? "0" : "1");
-                        RequestBody dob = RequestBody.create(MediaType.parse("text/plain"), btnDob.getText().toString() + "");
-                        RequestBody height = RequestBody.create(MediaType.parse("text/plain"), edtHeight.getText().toString() + "");
-                        RequestBody weight = RequestBody.create(MediaType.parse("text/plain"), edtWeight.getText().toString() + "");
-                        RequestBody about = RequestBody.create(MediaType.parse("text/plain"), txtTextBox.getText().toString() + "");
+                    double weightDouble = 0.0;
+                    double heightDouble = 0.0;
+                    try {
+                        weightDouble = Double.parseDouble(edtWeight.getText().toString());
 
-                        serviceHelper.enqueueCall(headerWebService.editProfile(fullname, gender, dob, height, weight, about, filePart != null ? filePart : null), EDITPROFILE);
-
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        edtWeight.setError(getDockActivity().getResources().getString(R.string.wight_error));
+                        return;
                     }
-                    break;
+                    try {
+                        heightDouble = Double.parseDouble(edtHeight.getText().toString());
 
-                case R.id.btn_dob:
-                    initDatePicker(btnDob);
-                    break;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        edtHeight.setError(getDockActivity().getResources().getString(R.string.height_error));
+                        return;
+                    }
 
-            }
-        }
+                    MultipartBody.Part filePart = null;
+                    if (profilePic != null) {
+                        filePart = MultipartBody.Part.createFormData("file", profilePic.getName(), RequestBody.create(MediaType.parse("image"), profilePic));
+                    }
 
-        @Override
-        public void ResponseSuccess (Object result, String Tag, String message){
-            super.ResponseSuccess(result, Tag, message);
-            switch (Tag) {
-                case EDITPROFILE:
-                    UserEnt entity = (UserEnt) result;
-                    prefHelper.putUser(entity);
-                    UIHelper.showShortToastInCenter(getDockActivity(), getMainActivity().getResourceString(R.string.profile_updated));
-                    getDockActivity().popFragment();
-                    break;
-            }
-        }
+                    RequestBody fullname = RequestBody.create(MediaType.parse("text/plain"), edtFullName.getText().toString() + "");
+                    RequestBody gender = RequestBody.create(MediaType.parse("text/plain"), spGender.getSelectedItemPosition() == 1 ? "0" : "1");
+                    RequestBody dob = RequestBody.create(MediaType.parse("text/plain"), btnDob.getText().toString() + "");
+                    RequestBody height = RequestBody.create(MediaType.parse("text/plain"), edtHeight.getText().toString() + "");
+                    RequestBody weight = RequestBody.create(MediaType.parse("text/plain"), edtWeight.getText().toString() + "");
+                    RequestBody about = RequestBody.create(MediaType.parse("text/plain"), txtTextBox.getText().toString() + "");
 
-        private void requestCameraPermission () {
-            Dexter.withActivity(getDockActivity())
-                    .withPermissions(
-                            Manifest.permission.CAMERA,
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                            Manifest.permission.READ_EXTERNAL_STORAGE)
-                    .withListener(new MultiplePermissionsListener() {
-                        @Override
-                        public void onPermissionsChecked(MultiplePermissionsReport report) {
+                    serviceHelper.enqueueCall(headerWebService.editProfile(fullname, gender, dob, height, weight, about, filePart != null ? filePart : null), EDITPROFILE);
 
-                            if (report.areAllPermissionsGranted()) {
-                                CameraHelper.uploadPhotoDialog(getMainActivity());
-                            }
-
-                            // check for permanent denial of any permission
-                            if (report.isAnyPermissionPermanentlyDenied()) {
-                                requestCameraPermission();
-
-                            } else if (report.getDeniedPermissionResponses().size() > 0) {
-                                requestCameraPermission();
-                            }
-                        }
-
-                        @Override
-                        public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                            token.continuePermissionRequest();
-                        }
-                    }).
-                    withErrorListener(new PermissionRequestErrorListener() {
-                        @Override
-                        public void onError(DexterError error) {
-                            UIHelper.showShortToastInCenter(getDockActivity(), "Grant Camera And Storage Permission to processed");
-                            openSettings();
-                        }
-                    })
-
-                    .onSameThread()
-                    .check();
-
-
-        }
-
-        private void openSettings () {
-
-            Intent intent = new Intent();
-            intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-            intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-            Uri uri = Uri.fromParts("package", getDockActivity().getPackageName(), null);
-            intent.setData(uri);
-            startActivity(intent);
-        }
-
-
-        public void checkPermission () {
-
-            AndPermission.with(this)
-                    .runtime()
-                    .permission(Permission.READ_EXTERNAL_STORAGE, Permission.CAMERA)
-                    .onGranted(permissions -> {
-
-                        CameraHelper.uploadPhotoDialog(getMainActivity());
-
-                    })
-                    .onDenied(permissions -> {
-                        UIHelper.showShortToastInCenter(getDockActivity(), "Permission is required to access this feature");
-                    })
-                    .start();
-
-        }
-
-
-        private void initDatePicker ( final TextView textView){
-            Calendar calendar = Calendar.getInstance();
-            final DatePickerHelper datePickerHelper = new DatePickerHelper();
-            datePickerHelper.initDateDialog(
-                    getDockActivity(),
-                    calendar.get(Calendar.YEAR),
-                    calendar.get(Calendar.MONTH),
-                    calendar.get(Calendar.DAY_OF_MONTH)
-                    , "PreferredDate");
-            datePickerHelper.setListener(new DatePickerHelper.OnDateSelectedListener() {
-                @Override
-                public void onDatePicked(Calendar date) {
-                    selectedDate = new SimpleDateFormat(AppConstants.SERVER_DATE_FORMAT, Locale.ENGLISH)
-                            .format(date.getTime());
-                    textView.setText(new SimpleDateFormat(AppConstants.DateFormat_YMD, Locale.ENGLISH)
-                            .format(date.getTime()));
                 }
-            });
-            Calendar c = Calendar.getInstance();
-            c.setTime(new Date());
-            c.set(Calendar.YEAR, c.get(Calendar.YEAR));
-            datePickerHelper.setmaxDate(c.getTime().getTime());
-            datePickerHelper.showDate();
-        }
+                break;
 
-        @Override
-        public void setImage (String imagePath){
-            if (imagePath != null) {
-                try {
-                    profilePic = new Compressor(getDockActivity()).compressToFile(new File(imagePath));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                //profilePic = new File(imagePath);
-                ImageLoader.getInstance().displayImage("file:///" + imagePath, civProfilePic);
-                profilePath = imagePath;
-            }
-
-        }
-
-        @Override
-        public void setFilePath (String filePath){
-
-        }
-
-        @Override
-        public void setVideo (String videoPath){
+            case R.id.btn_dob:
+                initDatePicker(btnDob);
+                break;
 
         }
     }
+
+
+
+    @Override
+    public void ResponseSuccess(Object result, String Tag, String message) {
+        super.ResponseSuccess(result, Tag, message);
+        switch (Tag) {
+            case EDITPROFILE:
+                UserEnt entity = (UserEnt) result;
+                prefHelper.putUser(entity);
+                UIHelper.showShortToastInCenter(getDockActivity(), getMainActivity().getResourceString(R.string.profile_updated));
+                getDockActivity().popFragment();
+                break;
+        }
+    }
+
+    private void requestCameraPermission() {
+        Dexter.withActivity(getDockActivity())
+                .withPermissions(
+                        Manifest.permission.CAMERA,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE)
+                .withListener(new MultiplePermissionsListener() {
+                    @Override
+                    public void onPermissionsChecked(MultiplePermissionsReport report) {
+
+                        if (report.areAllPermissionsGranted()) {
+                            CameraHelper.uploadPhotoDialog(getMainActivity());
+                        }
+
+                        // check for permanent denial of any permission
+                        if (report.isAnyPermissionPermanentlyDenied()) {
+                            requestCameraPermission();
+
+                        } else if (report.getDeniedPermissionResponses().size() > 0) {
+                            requestCameraPermission();
+                        }
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                        token.continuePermissionRequest();
+                    }
+                }).
+                withErrorListener(new PermissionRequestErrorListener() {
+                    @Override
+                    public void onError(DexterError error) {
+                        UIHelper.showShortToastInCenter(getDockActivity(), "Grant Camera And Storage Permission to processed");
+                        openSettings();
+                    }
+                })
+
+                .onSameThread()
+                .check();
+
+
+    }
+
+    private void openSettings() {
+
+        Intent intent = new Intent();
+        intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        Uri uri = Uri.fromParts("package", getDockActivity().getPackageName(), null);
+        intent.setData(uri);
+        startActivity(intent);
+    }
+
+
+    public void checkPermission() {
+
+        AndPermission.with(this)
+                .runtime()
+                .permission(Permission.READ_EXTERNAL_STORAGE, Permission.CAMERA)
+                .onGranted(permissions -> {
+
+                    CameraHelper.uploadPhotoDialog(getMainActivity());
+
+                })
+                .onDenied(permissions -> {
+                    UIHelper.showShortToastInCenter(getDockActivity(), "Permission is required to access this feature");
+                })
+                .start();
+
+    }
+
+
+    private void initDatePicker(final TextView textView) {
+        Calendar calendar = Calendar.getInstance();
+        final DatePickerHelper datePickerHelper = new DatePickerHelper();
+        datePickerHelper.initDateDialog(
+                getDockActivity(),
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+                , "PreferredDate");
+        datePickerHelper.setListener(new DatePickerHelper.OnDateSelectedListener() {
+            @Override
+            public void onDatePicked(Calendar date) {
+                selectedDate = new SimpleDateFormat(AppConstants.SERVER_DATE_FORMAT, Locale.ENGLISH)
+                        .format(date.getTime());
+                textView.setText(new SimpleDateFormat(AppConstants.DATE_FORMAT_APP, Locale.ENGLISH)
+                        .format(date.getTime()));
+            }
+        });
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date());
+        c.set(Calendar.YEAR, c.get(Calendar.YEAR));
+        datePickerHelper.setmaxDate(c.getTime().getTime());
+        datePickerHelper.showDate();
+    }
+
+    @Override
+    public void setImage(String imagePath) {
+        if (imagePath != null) {
+            try {
+                profilePic = new Compressor(getDockActivity()).compressToFile(new File(imagePath));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            //profilePic = new File(imagePath);
+            ImageLoader.getInstance().displayImage("file:///" + imagePath, civProfilePic);
+            profilePath = imagePath;
+        }
+
+    }
+
+    @Override
+    public void setFilePath(String filePath) {
+
+    }
+
+    @Override
+    public void setVideo(String videoPath) {
+
+    }
+}
