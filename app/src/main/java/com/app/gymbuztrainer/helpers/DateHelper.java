@@ -918,5 +918,30 @@ public class DateHelper {
 		}
 		return OurDate;
 	}
+	public static Date getDateFromString(String Currentformat, String dateString) {
+		Date date = new Date();
+		try {
+			SimpleDateFormat formatter = new SimpleDateFormat(Currentformat, Locale.ENGLISH);
+			date = formatter.parse(dateString);
+		} catch (Exception e) {
+			e.fillInStackTrace();
+		}
+		return date;
+	}
+	public static String getAge(String format, String dateOfBirth) {
 
+		Calendar dob = Calendar.getInstance();
+		Calendar today = Calendar.getInstance();
+		dob.setTime(getDateFromString(format, dateOfBirth));
+
+		int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+
+		if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)) {
+			age--;
+		}
+
+		Integer ageInt = age;
+
+		return ageInt.toString();
+	}
 }

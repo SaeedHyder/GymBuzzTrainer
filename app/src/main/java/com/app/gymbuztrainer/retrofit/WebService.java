@@ -30,7 +30,8 @@ public interface WebService {
             @Field("email") String email,
             @Field("password") String password,
             @Field("deviceID") String deviceID,
-            @Field("deviceType") int deviceType
+            @Field("deviceType") int deviceType,
+            @Field("roleid") int roleid
     );
 
 
@@ -93,9 +94,10 @@ public interface WebService {
             @Query("GymID") int GymID
     );
 
-    @GET("api/User/Logout")
+    @GET("User/Logout")
     Call<ResponseWrapper> logout(
-            @Query("DeviceType") int DeviceType
+            @Query("DeviceType") int DeviceType,
+            @Query("deviceID") String deviceID
     );
 
 

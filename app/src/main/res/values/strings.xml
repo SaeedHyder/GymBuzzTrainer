@@ -196,7 +196,7 @@
     <string name="samePassword">New password should be changed from previous password</string>
     <string name="conform_password_error">confirm password does not match</string>
     <string name="password_length_alert">Password should be 6 or more characters long.</string>
-    <string name="pass_changed">Password changed successfully.</string>
+    <string name="pass_changed">Password has been changed successfully.</string>
     <string name="no_notifaction_found">No notifaction found</string>
     <string name="support">Support</string>
     <string name="no_request_found">No support request found</string>
@@ -211,5 +211,8 @@
     <string name="job_done_succesfully">Job has completed successfully</string>
     <string name="url_not_avaliable">URL not avaliable</string>
     <string name="profile_updated">Profile has been updated successfully</string>
+    <string name="job_accept">Job Accepted</string>
+    <string name="email_subject">Gym Buz Query</string>
+    <string name="something_error">Something wenr wrong. We\'re trying to Fix it</string>
 
 </resources>

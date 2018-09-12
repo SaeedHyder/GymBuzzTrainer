@@ -154,7 +154,7 @@ public class SupportRequestFragment extends BaseFragment implements RequestInter
             case ACCEPTREQUEST:
                 collection.get((int)onAcceptPosition).setAccepted(true);
                 lvRequests.notifyDataSetChanged();
-                UIHelper.showShortToastInCenter(getDockActivity(), message);
+                UIHelper.showShortToastInCenter(getDockActivity(), getMainActivity().getResourceString(R.string.job_accept));
 
                 break;
 
