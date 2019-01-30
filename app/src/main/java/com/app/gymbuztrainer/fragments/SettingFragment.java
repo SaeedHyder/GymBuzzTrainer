@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,15 +19,14 @@ import android.widget.ToggleButton;
 
 import com.app.gymbuztrainer.R;
 import com.app.gymbuztrainer.entities.CmsEnt;
-import com.app.gymbuztrainer.entities.SocialMediaLink;
 import com.app.gymbuztrainer.entities.UserEnt;
 import com.app.gymbuztrainer.fragments.abstracts.BaseFragment;
 import com.app.gymbuztrainer.global.AppConstants;
-import com.app.gymbuztrainer.global.WebServiceConstants;
 import com.app.gymbuztrainer.helpers.DialogHelper;
 import com.app.gymbuztrainer.helpers.UIHelper;
 import com.app.gymbuztrainer.ui.views.AnyTextView;
 import com.app.gymbuztrainer.ui.views.TitleBar;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -231,35 +231,35 @@ public class SettingFragment extends BaseFragment {
                 break;
 
             case R.id.btn_fb:
-                if (facebookUrl != null && !facebookUrl.equals("")) {
+                if (facebookUrl != null && !facebookUrl.equals("") && Patterns.WEB_URL.matcher(facebookUrl).matches()) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(facebookUrl)));
                 } else {
                     UIHelper.showShortToastInCenter(getDockActivity(), getMainActivity().getResourceString(R.string.url_not_avaliable));
                 }
                 break;
             case R.id.btn_insta:
-                if (instaUrl != null && !instaUrl.equals("")) {
+                if (instaUrl != null && !instaUrl.equals("") && Patterns.WEB_URL.matcher(facebookUrl).matches()) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(instaUrl)));
                 } else {
                     UIHelper.showShortToastInCenter(getDockActivity(), getMainActivity().getResourceString(R.string.url_not_avaliable));
                 }
                 break;
             case R.id.btn_snapchat:
-                if (snapchatUrl != null && !snapchatUrl.equals("")) {
+                if (snapchatUrl != null && !snapchatUrl.equals("") && Patterns.WEB_URL.matcher(facebookUrl).matches()) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(snapchatUrl)));
                 } else {
                     UIHelper.showShortToastInCenter(getDockActivity(), getMainActivity().getResourceString(R.string.url_not_avaliable));
                 }
                 break;
             case R.id.btn_twitter:
-                if (twitterUrl != null && !twitterUrl.equals("")) {
+                if (twitterUrl != null && !twitterUrl.equals("") && Patterns.WEB_URL.matcher(facebookUrl).matches()) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(twitterUrl)));
                 } else {
                     UIHelper.showShortToastInCenter(getDockActivity(), getMainActivity().getResourceString(R.string.url_not_avaliable));
                 }
                 break;
             case R.id.btn_youtube:
-                if (youtubeUrl != null && !youtubeUrl.equals("")) {
+                if (youtubeUrl != null && !youtubeUrl.equals("") && Patterns.WEB_URL.matcher(facebookUrl).matches()) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(youtubeUrl)));
                 } else {
                     UIHelper.showShortToastInCenter(getDockActivity(), getMainActivity().getResourceString(R.string.url_not_avaliable));
@@ -273,11 +273,9 @@ public class SettingFragment extends BaseFragment {
                 dialogHelper.initlogout(R.layout.dialog_logout, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        prefHelper.setLoginStatus(false);
-                        getDockActivity().popBackStackTillEntry(0);
-                        getDockActivity().addDockableFragment(LoginFragment.newInstance(), "LoginFragment");
+
                         dialogHelper.hideDialog();
-                     //   serviceHelper.enqueueCall(headerWebService.logout(AppConstants.Device_Type), LOGOUT);
+                        serviceHelper.enqueueCall(headerWebService.logout(AppConstants.Device_Type, FirebaseInstanceId.getInstance().getToken()), LOGOUT);
 
                     }
                 }, new View.OnClickListener() {
@@ -293,9 +291,6 @@ public class SettingFragment extends BaseFragment {
                 break;
         }
     }
-
-
-
 
 
 }

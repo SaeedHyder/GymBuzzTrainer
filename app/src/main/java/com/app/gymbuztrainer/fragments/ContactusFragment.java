@@ -1,5 +1,7 @@
 package com.app.gymbuztrainer.fragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,11 +12,15 @@ import android.widget.ImageView;
 
 import com.app.gymbuztrainer.R;
 import com.app.gymbuztrainer.fragments.abstracts.BaseFragment;
+import com.app.gymbuztrainer.helpers.UIHelper;
 import com.app.gymbuztrainer.ui.views.AnyTextView;
 import com.app.gymbuztrainer.ui.views.TitleBar;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Permission;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
@@ -85,5 +91,58 @@ public class ContactusFragment extends BaseFragment {
         titleBar.setSubHeading(getString(R.string.contact_us));
     }
 
+    private void openEmail(String email) {
+        try {
+            final Intent emailIntent = new Intent(Intent.ACTION_SEND);
 
+            /* Fill it with Data */
+            emailIntent.setType("plain/text");
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_subject));
+            emailIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.write_your_comments));
+
+            /* Send it off to the Activity-Chooser */
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+        } catch (Exception e) {
+            e.printStackTrace();
+            UIHelper.showShortToastInCenter(getDockActivity(), getString(R.string.something_error));
+        }
+    }
+
+    private void openPhone(String number) {
+        AndPermission.with(this)
+                .runtime()
+                .permission(Permission.CALL_PHONE)
+                .onGranted(permissions -> {
+                    try {
+                        Intent callIntent = new Intent(Intent.ACTION_CALL);
+                        callIntent.setData(Uri.parse("tel:" + number));
+                        startActivity(callIntent);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        UIHelper.showShortToastInCenter(getDockActivity(), getString(R.string.something_error));
+                    }
+                    // CameraHelper.uploadPhotoDialog(getMainActivity());
+
+                })
+                .onDenied(permissions -> {
+                    UIHelper.showShortToastInCenter(getDockActivity(), "Permission is required to access this feature");
+                })
+                .start();
+
+    }
+
+
+
+    @OnClick({R.id.txtPhone, R.id.txEmail})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.txtPhone:
+                openPhone(txtPhone.getText().toString());
+                break;
+            case R.id.txEmail:
+                openEmail(txEmail.getText().toString());
+                break;
+        }
+    }
 }

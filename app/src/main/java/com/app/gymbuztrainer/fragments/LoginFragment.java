@@ -14,6 +14,7 @@ import com.app.gymbuztrainer.R;
 import com.app.gymbuztrainer.entities.UserEnt;
 import com.app.gymbuztrainer.fragments.abstracts.BaseFragment;
 import com.app.gymbuztrainer.global.AppConstants;
+import com.app.gymbuztrainer.global.WebServiceConstants;
 import com.app.gymbuztrainer.helpers.UIHelper;
 import com.app.gymbuztrainer.ui.views.AnyEditTextView;
 import com.app.gymbuztrainer.ui.views.AnyTextView;
@@ -101,7 +102,7 @@ public class LoginFragment extends BaseFragment {
             case R.id.btnLogin:
 
                 if (isValidated()) {
-                    serviceHelper.enqueueCall(webService.login(edtEmail.getText().toString(), edtPassword.getText().toString(), FirebaseInstanceId.getInstance().getToken(), AppConstants.Device_Type), LOGIN);
+                    serviceHelper.enqueueCall(webService.login(edtEmail.getText().toString(), edtPassword.getText().toString(), FirebaseInstanceId.getInstance().getToken(), AppConstants.Device_Type, WebServiceConstants.ROLE_ID), LOGIN);
                 }
 
                 break;

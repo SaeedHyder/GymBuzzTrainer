@@ -291,7 +291,7 @@ public class UpdateProfileFragment extends BaseFragment implements MainActivity.
                     RequestBody about = RequestBody.create(MediaType.parse("text/plain"), txtTextBox.getText().toString() + "");
 
                     serviceHelper.enqueueCall(headerWebService.editProfile(fullname, gender, dob, height, weight, about, filePart != null ? filePart : null), EDITPROFILE);
-
+                    btnUpdate.setEnabled(false);
                 }
                 break;
 
@@ -309,10 +309,20 @@ public class UpdateProfileFragment extends BaseFragment implements MainActivity.
         super.ResponseSuccess(result, Tag, message);
         switch (Tag) {
             case EDITPROFILE:
+                btnUpdate.setEnabled(true);
                 UserEnt entity = (UserEnt) result;
                 prefHelper.putUser(entity);
                 UIHelper.showShortToastInCenter(getDockActivity(), getMainActivity().getResourceString(R.string.profile_updated));
                 getDockActivity().popFragment();
+                break;
+        }
+    }
+
+    @Override
+    public void ResponseFailure(String tag) {
+        switch (tag){
+            case EDITPROFILE:
+                btnUpdate.setEnabled(true);
                 break;
         }
     }

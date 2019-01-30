@@ -18,4 +18,5 @@ public class WebServiceConstants {
     public static final String MARKJOBDONE = "MARKJOBDONE";
     public static final String CMS = "CMS";
     public static final String LOGOUT = "LOGOUT";
+  public static final int ROLE_ID = 3;
 }

@@ -101,11 +101,11 @@ public class ViewProfileFragment extends BaseFragment {
             }
             txtName.setText(prefHelper.getUser().getFullName() != null ? prefHelper.getUser().getFullName() : "-");
             txtEmail.setText(prefHelper.getUser().getEmail() != null ? prefHelper.getUser().getEmail() : "-");
-            txtHeightValue.setText(prefHelper.getUser().getHeight() != null ? prefHelper.getUser().getHeight() : "-");
-            txtWeightValue.setText(prefHelper.getUser().getWeight() != null ? prefHelper.getUser().getWeight() : "-");
+            txtHeightValue.setText(prefHelper.getUser().getHeight() != null ? prefHelper.getUser().getHeight() : "-"+" cm");
+            txtWeightValue.setText(prefHelper.getUser().getWeight() != null ? prefHelper.getUser().getWeight() : "-"+" lb");
             txtAboutUs.setText(prefHelper.getUser().getAbout() != null ? prefHelper.getUser().getAbout() : "-");
-
-            DateFormat format = new SimpleDateFormat(AppConstants.DATE_FORMAT_APP, Locale.ENGLISH);
+            txtAgeValue.setText(prefHelper.getUser().getUserAge());
+           /* DateFormat format = new SimpleDateFormat(AppConstants.DATE_FORMAT_APP, Locale.ENGLISH);
             Date date = null;
             try {
                 if (prefHelper.getUser().getDob() != null)
@@ -118,7 +118,7 @@ public class ViewProfileFragment extends BaseFragment {
             } else {
                 txtAgeValue.setText("-");
             }
-
+*/
         }
 
     }
@@ -159,12 +159,7 @@ public class ViewProfileFragment extends BaseFragment {
         titleBar.hideButtons();
         titleBar.showBackButton();
         titleBar.setSubHeading(getMainActivity().getResourceString(R.string.profile1));
-        titleBar.showRightButton(R.drawable.edit, true, new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getDockActivity().replaceDockableFragment(UpdateProfileFragment.newInstance(), UpdateProfileFragment.class.getSimpleName());
-            }
-        });
+        titleBar.showRightButton(R.drawable.edit, true, view -> getDockActivity().replaceDockableFragment(UpdateProfileFragment.newInstance(), UpdateProfileFragment.class.getSimpleName()));
     }
 
 

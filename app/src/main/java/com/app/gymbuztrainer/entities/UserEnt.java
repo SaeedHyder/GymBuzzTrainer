@@ -1,5 +1,7 @@
 package com.app.gymbuztrainer.entities;
 
+import com.app.gymbuztrainer.global.AppConstants;
+import com.app.gymbuztrainer.helpers.DateHelper;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -271,7 +273,9 @@ public class UserEnt {
     public String getDob() {
         return dob;
     }
-
+    public String getUserAge() {
+        return DateHelper.getAge(AppConstants.LOG_DATE_FORMAT, dob);
+    }
     public void setDob(String dob) {
         this.dob = dob;
     }
